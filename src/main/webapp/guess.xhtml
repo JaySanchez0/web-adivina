@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+ <h:head><title>guess</title></h:head>
+ <h:body>
+ <h:form id="guess_form">
+ <p:outputLabel value="#{guessbean.numberForWin}" style="display:none;"></p:outputLabel>
+ <br></br>
+ <p:outputLabel>Numero de Intentos: </p:outputLabel>
+ <p:outputLabel value="#{guessbean.numberTry}"></p:outputLabel>
+ <br></br>
+ <p:outputLabel>Cantidad a ganar: </p:outputLabel>
+ <p:outputLabel value="#{guessbean.cost}"></p:outputLabel>
+ <br></br>
+ <p:outputLabel value="#{guessbean.state}"></p:outputLabel>
+ <br></br>
+ <h:inputText value="#{guessbean.numberUser}"></h:inputText>
+ <p:commandButton value="Mirar" update="guess_form" actionListener="#{guessbean.guess()}"></p:commandButton>
+ <br></br>
+ <br></br>
+ <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessbean.restart()}"></p:commandButton>
+ <br></br>
+ <br></br>
+ <p:outputLabel>Numeros Ingresados: </p:outputLabel>
+   <h:dataTable value="#{guessbean.trys}" var="t">
+  <h:column>${t}</h:column>
+  </h:dataTable>
+  </h:form>
+ </h:body>
+</html>
